@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <header className={classes.header}>
             <h1>
-                <Link to='/'>Yuruki</Link>
+                <Link to='/'>yuruki</Link>
             </h1>
             <nav className={classes.navigation}>
                 <Link to='/'>home</Link>
