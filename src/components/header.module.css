@@ -1,0 +1,14 @@
+.header {
+    text-align: center;
+    h1 {
+        margin: 30px auto;
+    }
+}
+.navigation { 
+    display: flex;
+    margin: auto;
+    max-width: 800px;
+    & > * {
+        flex-grow: 1;
+    }
+}
