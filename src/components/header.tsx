@@ -8,9 +8,10 @@ export default function Header() {
                 <Link to='/'>Yuruki</Link>
             </h1>
             <nav className={classes.navigation}>
-                <p>coding</p>
-                <p>music</p>
-                <p>art</p>
+                <Link to='/'>home</Link>
+                <Link to='/coding'>coding</Link>
+                <Link to='/music'>music</Link>
+                <Link to='/art'>art</Link>
                 <Link to='/about'>about</Link>
             </nav>
         </header>

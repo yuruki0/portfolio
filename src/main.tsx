@@ -7,10 +7,16 @@ import '../assets/fonts/Inter/inter.css'
 import { rootRoute } from './pages/__root'
 import { IndexRoute } from './pages'
 import { AboutRoute } from './pages/about'
+import { ArtRoute } from './pages/art'
+import { CodingRoute } from './pages/coding'
+import { MusicRoute } from './pages/music'
 
 const routeTree = rootRoute.addChildren([
     IndexRoute,
     AboutRoute,
+    ArtRoute,
+    CodingRoute,
+    MusicRoute,
 ])
 
 const router = createRouter({
