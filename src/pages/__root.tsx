@@ -1,7 +1,4 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router"
-import Header from "../components/header"
-import Footer from "../components/footer"
-import Content from "../components/content"
 import Layout from "../components/layout"
 
 function rootComponent() {
@@ -10,11 +7,7 @@ function rootComponent() {
             <HeadContent />
             <Scripts />
             <Layout>
-                <Header />
-                <Content>
-                    <Outlet />
-                </Content>
-                <Footer />
+                <Outlet />
             </Layout>
         </>
     )
