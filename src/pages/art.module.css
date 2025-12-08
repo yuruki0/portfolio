@@ -1,0 +1,6 @@
+.art_display {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    gap: 3vw;
+}
