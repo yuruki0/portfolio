@@ -8,6 +8,7 @@ import { rootRoute } from "./__root";
 import imageIndex from '../../assets/images/image_index.json'
 
 import Image from "../components/art-display/image";
+import { useEffect, useState } from "react";
 
 interface ImageDataType {
     name: string,
@@ -16,25 +17,31 @@ interface ImageDataType {
     fileName: string
 }
 
-const images: ImageDataType[] = [];
-
-for (const imageData of imageIndex.illustrations) {
-    import(`../../assets/images/${imageData.fileName}.jpg`)
-        .then((imgUrl) => {
-            const newImageData: ImageDataType = {...imageData};
-            newImageData.fileName = imgUrl.default;
-            images.push(newImageData)
-        })
-}
 
 // Index page component
 function ArtPage() {
-    return (
+    const [art, setArt] = useState([...imageIndex.illustrations])
+
+    useEffect(() => {
+        (async () => {
+            const images: ImageDataType[] = [...imageIndex.illustrations]
+            for (let i = 0; i < imageIndex.illustrations.length; i ++) {
+                const imageData = imageIndex.illustrations[i]
+                const imgUrl = await import(`../../assets/images/${imageData.fileName}.jpg`)
+                const newImageData: ImageDataType = {...imageData};
+                newImageData.fileName = imgUrl.default;
+                images[i] = newImageData
+            }
+            setArt(images)
+        })()
+    }, [])
+
+    return (    
         <>
             <h2>my art</h2>
             <div className={classes.art_display}>
                 {
-                    images.map((image) =>
+                    art.map((image) =>
                         <Image key={image.fileName} src={image.fileName} caption={image.caption} />
                     )
                 }
